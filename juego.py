@@ -12,7 +12,7 @@ def comparar_resultado(opcion_humano, opcion_maquina):
             resultado = -1
             return resultado
 
-opcion_ingresada = input('Ingrese las opciones (piedra papel tijera): ').lower().strip()
+opcion_ingresada = input('Ingrese las opciones (piedra papel tijera ): ').lower().strip()
 opciones_humano = opcion_ingresada.split()
 
 
