@@ -1,4 +1,15 @@
 import random
+import sys
+
+historial_usuario = []
+
+def validar_entradas(opciones_humanos):
+    opciones_validas = ['piedra', 'papel', 'tijera']
+    if len(opciones_humano) != 3:
+        print('Debe de ingresar exactamente tres opciones: ')
+    for opcion in opciones_humano:
+        if opcion not in opciones_validas:
+            print(f'La opcion no es invalida: {opcion}')
 
 def comparar_resultado(opcion_humano, opcion_maquina):
         if opcion_humano == opcion_maquina:
@@ -12,11 +23,17 @@ def comparar_resultado(opcion_humano, opcion_maquina):
             resultado = -1
             return resultado
 
-opcion_ingresada = input('Ingrese las opciones (piedra papel tijera ): ').lower().strip()
-opciones_humano = opcion_ingresada.split()
+if len(sys.argv) != 4:
+    sys.exit(1)
 
+opciones_humano = [opcion.lower().strip() for opcion in sys.argv[1:4]]
+try:
+    validar_entradas(opciones_humano)
+except ValueError as e:
+    print(f'ERROR: {e}')
+    sys.exit(1)
 
-
+historial_usuario.extend(opciones_humano)
 
 opciones = ['piedra', 'papel', 'tijera']
 opciones_maquina = []
@@ -34,13 +51,8 @@ for i in range(3):
     elif resultado == -1:
         puntos_maquina = puntos_maquina + 1
 
-print('El programa elige:', opciones_maquina)
-    
-
-
-
-
-
+print('El programa eligio: ', opciones_maquina)
+print('Historial del usuario: ', historial_usuario)
 print('Punteo:', puntos_humano, '--', puntos_maquina)
 
 if puntos_humano > puntos_maquina:
