@@ -27,7 +27,7 @@ class TestJuego(unittest.TestCase):
         self.assertEqual(comparar_resultado('papel', 'tijera'), -1)
 
     def test_papel_vs_papel(self):
-        self.assertEqual(comparar_resultado('papel', 'papel'), 1)
+        self.assertEqual(comparar_resultado('papel', 'papel'), 0)
 
 if __name__ == '__main__':
     unittest.main()
