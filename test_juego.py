@@ -9,10 +9,10 @@ class TestJuego(unittest.TestCase):
         self.assertEqual(comparar_resultado('piedra', 'papel'), -1)
 
     def test_piedra_vs_piedra(self):
-        self.assertEqual(comparar_resultado('piedra', 'piedra'), 0)
+        self.assertEqual(comparar_resultado('celular', 'piedra'), 0)
 
     def test_tijera_vs_papel(self):
-        self.assertEqual(comparar_resultado('tijera', 'papel'), 1)
+        self.assertEqual(comparar_resultado('cuchillo', 'papel'), 1)
 
     def test_tijera_vs_piedra(self):
         self.assertEqual(comparar_resultado('tijera', 'piedra'), -1)
